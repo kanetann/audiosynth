@@ -278,7 +278,7 @@ function AudioSynthView() {
 				// break;
 				fnPlaySong([
 					['C,0', 2],
-					[fnRandomNote()  + ',0', 2],
+					[fnRandomNote('C')  + ',0', 2],
 				]);
 				// fnPlaySong([
 				// 	['E,0', 8],
@@ -373,8 +373,13 @@ function AudioSynthView() {
 
 	};
 
-  var fnRandomNote = function() {
+  var fnRandomNote = function(root) {
     var array = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B", "C"];
+    for(i = 0; i < array.length; i++){
+      if(array[i] == root){
+        array.splice(i, 1);
+      }
+    }
     return array[Math.floor(Math.random() * array.length)];
   };
 
